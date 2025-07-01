@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ScoutOps</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ScoutOps.ai</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">ScoutOps.ai</a>
+        <% if broker_signed_in? %>
+          <span class="navbar-text">Welcome, <%= current_broker.email %></span>
+        <% end %>
+      </div>
+    </nav>
+    <div class="container mt-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
